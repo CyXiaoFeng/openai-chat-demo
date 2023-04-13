@@ -43,8 +43,10 @@ export const post: APIRoute = async(context) => {
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  const response = await fetch(`${baseUrl}/v1/chat/completions`, initOptions).catch((err: Error) => {
-    console.error(err)
+  const apiUrl = `${baseUrl}/v1/chat/completions`
+  console.info(apiUrl)
+  const response = await fetch(apiUrl, initOptions).catch((err: Error) => {
+    console.error(`occour error->${err}`)
     return new Response(JSON.stringify({
       error: {
         code: err.name,

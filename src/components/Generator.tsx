@@ -113,7 +113,7 @@ export default () => {
       })
       if (!response.ok) {
         const error = await response.json()
-        console.error(error.error)
+        console.error(`occour error->${error.error}`)
         setCurrentError(error.error)
         throw new Error('Request failed')
       }
